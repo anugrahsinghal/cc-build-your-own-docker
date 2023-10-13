@@ -19,5 +19,5 @@ RUN mkdir -p /app-cached
 RUN mv /app/target /app-cached
 
 # Pre-compile steps
-RUN echo "cd \${CODECRAFTERS_SUBMISSION_DIR} && mvn -B package -Ddir=/tmp/codecrafters-docker-target && sed -i 's/^\(mvn .*\)/#\1/' ./your_docker.sh" > /codecrafters-precompile.sh
+RUN echo "cd \${CODECRAFTERS_SUBMISSION_DIR} && mvn -B --quiet package -Ddir=/tmp/codecrafters-docker-target && sed -i 's/^\(mvn .*\)/#\1/' ./your_docker.sh" > /codecrafters-precompile.sh
 RUN chmod +x /codecrafters-precompile.sh
